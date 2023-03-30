@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADOP_Project_Part_B_Weather.Views.ForecastPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Refresh" Clicked="Button_Clicked" />
+            <ListView x:Name="GroupedForecast" IsGroupingEnabled="true" HasUnevenRows="true" 
+          ItemsSource="{Binding Forecast}" GroupDisplayBinding="{Binding Key}">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Key}" />
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Icon}" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="{Binding}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
